@@ -6,13 +6,13 @@ Vohaul is my take on a small UI kit with some personality. It pairs the familiar
 
 [Explore Vohaul](https://greta.github.io/vohaul/) · [Try the component lab](https://greta.github.io/vohaul/storybook/) · [Find me on GitHub](https://github.com/Greta)
 
-![Vohaul in Nightfall, with mint neon controls and an orbital illustration](docs/nightfall.png)
+![Vohaul in Nightfall, with mint neon controls and an orbital illustration](docs/nightfall.jpg)
 
 ## Two different atmospheres
 
 **Nightfall** brings mint, lavender, and icy blue into deep space. **Daybreak** softens the same interface with pastel surfaces and darker text. Switch between them anywhere in the showcase. Your choice stays with you the next time you visit.
 
-![Vohaul in Daybreak, with soft pastel colors and a light background](docs/daybreak.png)
+![Vohaul in Daybreak, with soft pastel colors and a light background](docs/daybreak.jpg)
 
 ## Take a look around
 

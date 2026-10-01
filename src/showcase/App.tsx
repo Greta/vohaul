@@ -66,7 +66,7 @@ function ThemePreview({
       <div className="theme-preview-label">
         <div>
           <span className="eyebrow">
-            {theme === 'dark' ? 'UNFILTERED MEGALOMANIA' : 'PUBLIC RELATIONS MODE'}
+            {theme === 'dark' ? 'UNFILTERED MEGALOMANIA' : 'XENON / AFTER THE FALL'}
           </span>
           <strong>{theme === 'dark' ? 'Nightfall' : 'Daybreak'}</strong>
         </div>
@@ -224,7 +224,7 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
             <h2>
               After-hours villainy.
               <br />
-              Daytime respectability.
+              Daybreak on Xenon.
             </h2>
           </div>
           <p>

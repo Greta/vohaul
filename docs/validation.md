@@ -14,7 +14,7 @@
 - axe-core structural checks on the initial takeover screen and its validation state
 - Text contrast of at least 4.5:1 for tested theme token pairs and at least 3:1 for tested control boundaries and focus rings
 
-The contrast tests read the actual CSS theme values, including the signal and magenta/plum text used by the redesigned HUD. Decorative artwork and disabled controls are outside those checks.
+The contrast tests read the actual CSS theme values, including the signal and magenta/steel blue text used by the redesigned HUD. Daybreak uses a future Xenon palette of sandstone, orange, rust, and concrete. Decorative artwork and disabled controls are outside those checks.
 
 Storybook's automated scan reports button contrast as inconclusive because the cut-corner background uses pseudo-elements. The primary example showed zero detected violations in both themes. Its foreground/background token pair passes the separate contrast tests, and the rendered button was visually checked. An inconclusive scan is not a complete accessibility pass.
 

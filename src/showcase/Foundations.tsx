@@ -3,12 +3,12 @@ import { Button } from '../components';
 import { Icon } from './Icons';
 import { CodeBlock } from './CodeBlock';
 const tokens = [
-  ['--v-accent', 'Authority', '#00F5FF', '#F7CBB2'],
-  ['--v-lilac', 'Ego', '#FF4CDE', '#78418E'],
-  ['--v-cyan', 'Intelligence', '#62BAFF', '#236477'],
-  ['--v-warning', 'Interference', '#E8FF00', '#675213'],
-  ['--v-bg', 'Fortress / Facade', '#05080D', '#F2EEF8'],
-  ['--v-surface', 'Console', '#0A121B', '#FCF9FF'],
+  ['--v-accent', 'Authority', '#00F5FF', '#ED7A31'],
+  ['--v-lilac', 'Ego', '#FF4CDE', '#425575'],
+  ['--v-cyan', 'Intelligence', '#62BAFF', '#355568'],
+  ['--v-warning', 'Interference', '#E8FF00', '#6C500F'],
+  ['--v-bg', 'Fortress / Xenon sky', '#05080D', '#F2C18F'],
+  ['--v-surface', 'Console', '#0A121B', '#DCE1E4'],
 ];
 export function Foundations() {
   const [copied, setCopied] = useState('');
@@ -32,8 +32,9 @@ export function Foundations() {
           </h2>
         </div>
         <p>
-          Nightfall is electric cyan, hot magenta, and acid yellow. Daybreak trades them for peach,
-          lavender, and cool blue. Color roles stay consistent, while the hues are free to change.
+          Nightfall is electric cyan, hot magenta, and acid yellow. Daybreak borrows from future
+          Xenon: scorched orange skies, rust, concrete, and steel blue. Color roles stay consistent,
+          while the hues are free to change.
         </p>
       </div>
       <div className="palette-comparison">

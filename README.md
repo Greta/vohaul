@@ -12,11 +12,11 @@ The design leans into sharp edges, cut corners, segmented gauges, and unapologet
 
 ## Two different atmospheres
 
-**Nightfall** is Vohaul after hours: electric cyan, hot magenta, and acid yellow against near-black. **Daybreak** is his public relations department at work: peach controls, lavender surfaces, and plum linework. A completely different palette, with all the same sharp edges.
+**Nightfall** is Vohaul after hours: electric cyan, hot magenta, and acid yellow against near-black. **Daybreak** takes its colors from future Xenon in Space Quest IV: orange skies, rust, sun-warmed sandstone, concrete consoles, and steel blue details. A completely different palette, with all the same sharp edges. A lovely morning for a questionable master plan.
 
 Switch between them anywhere in the showcase. Your choice stays with you the next time you visit.
 
-![Vohaul in Daybreak, with soft pastel colors and a light background](docs/daybreak.jpg)
+![Vohaul in Daybreak, with a sandstone sky, orange controls, concrete panels, and steel blue details inspired by future Xenon](docs/daybreak.jpg)
 
 ## Take a look around
 

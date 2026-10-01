@@ -430,7 +430,11 @@ export function App() {
               <Mark />
               <span>VOHAUL</span>
             </a>
-            <span>UNOFFICIAL SPACE QUEST TRIBUTE. OFFICIAL SUPERIORITY COMPLEX.</span>
+            <span>
+              UNOFFICIAL SPACE QUEST TRIBUTE.
+              <br />
+              OFFICIAL SUPERIORITY COMPLEX.
+            </span>
             <a href="https://github.com/Greta">
               Greta Prisby <Icon name="external" width="12" />
             </a>

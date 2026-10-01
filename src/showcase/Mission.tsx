@@ -20,7 +20,10 @@ export function Mission() {
   useEffect(() => {
     if (launched) document.getElementById('mission-success-heading')?.focus();
   }, [launched]);
-  const error = submitted && !name.trim() ? 'Give your mission a name before launch.' : undefined;
+  const error =
+    submitted && !name.trim()
+      ? 'Name your operation before proceeding. Even genius needs a filing system.'
+      : undefined;
   const checkError = submitted && !confirmed;
   const submit = (event: FormEvent) => {
     event.preventDefault();
@@ -40,7 +43,7 @@ export function Mission() {
     <div className="mission-layout">
       <section className="mission-console">
         <div className="panel-heading">
-          <span className="eyebrow">MISSION CONTROL</span>
+          <span className="eyebrow">TAKEOVER SIMULATOR</span>
           <span className="chip">
             <span className="status-dot" />
             SIMULATION
@@ -52,10 +55,10 @@ export function Mission() {
               <Icon name="check" width="36" height="36" />
             </span>
             <h2 id="mission-success-heading" tabIndex={-1}>
-              You're cleared for takeoff.
+              An inevitable triumph.
             </h2>
             <Alert tone="success" title={`${name.trim()} is ready`} announce>
-              Flight plan confirmed. {telemetry ? 'Telemetry is enabled.' : 'Telemetry is off.'}{' '}
+              Operation approved. {telemetry ? 'Surveillance is enabled.' : 'Surveillance is off.'}{' '}
               This is a local demo. Nothing was sent or launched.
             </Alert>
             <Button
@@ -65,61 +68,60 @@ export function Mission() {
                 setConfirmed(false);
               }}
             >
-              Plan another mission <Icon name="arrow" />
+              Plot another takeover <Icon name="arrow" />
             </Button>
           </div>
         ) : (
           <>
-            <h2>Find your next horizon.</h2>
+            <h2>Draft your inevitable victory.</h2>
             <p className="muted">
-              A little preparation goes a long way. Build your flight plan and run through the
-              checklist.
+              A name. A target. A needlessly elaborate scheme. Try to keep up.
             </p>
             <form onSubmit={submit} noValidate>
               <TextField
                 id="mission-name"
-                label="Mission name"
-                placeholder="e.g. Pale Blue Dot"
+                label="Operation name"
+                placeholder="e.g. Aggressive Door-to-Door Sales"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 error={error}
                 required
                 maxLength={60}
-                hint="Something worth putting on a mission patch."
+                hint="Something suitably intimidating for the stationery."
               />
               <div className="mission-route">
                 <span className="route-node" />
                 <div>
-                  <span className="eyebrow">DEPARTURE</span>
-                  <strong>Earth / Low orbit</strong>
+                  <span className="eyebrow">HEADQUARTERS</span>
+                  <strong>Asteroid fortress</strong>
                 </div>
                 <div className="route-line" />
                 <span className="route-node route-node--end" />
                 <div>
-                  <span className="eyebrow">DESTINATION</span>
-                  <strong>Kepler Station</strong>
+                  <span className="eyebrow">OBJECTIVE</span>
+                  <strong>Xenon</strong>
                 </div>
               </div>
               <Tabs
-                label="Mission planning"
+                label="Operation planning"
                 value={planningTab}
                 onValueChange={setPlanningTab}
                 items={[
                   {
                     id: 'checklist',
-                    label: 'Preflight',
+                    label: 'Directives',
                     content: (
                       <div className="checklist">
                         <Checkbox
-                          label="Enable telemetry"
-                          description="Include flight updates in the mission plan."
+                          label="Enable surveillance"
+                          description="Keep an eye out for suspicious cleaning supplies."
                           checked={telemetry}
                           onChange={(event) => setTelemetry(event.target.checked)}
                         />
                         <Checkbox
                           id="mission-confirm"
-                          label="Flight plan reviewed"
-                          description="Confirm the destination and mission name."
+                          label="Takeover plan reviewed"
+                          description="Confirm the target and operation name."
                           checked={confirmed}
                           onChange={(event) => setConfirmed(event.target.checked)}
                           aria-invalid={checkError || undefined}
@@ -127,7 +129,7 @@ export function Mission() {
                         />
                         {checkError && (
                           <p id="mission-check-error" className="v-error">
-                            Review your flight plan before continuing.
+                            Review your takeover plan before continuing.
                           </p>
                         )}
                       </div>
@@ -135,20 +137,20 @@ export function Mission() {
                   },
                   {
                     id: 'details',
-                    label: 'Flight details',
+                    label: 'Operation details',
                     content: (
                       <dl className="flight-details">
                         <div>
                           <dt>Route</dt>
-                          <dd>Earth → Kepler</dd>
+                          <dd>Fortress → Xenon</dd>
                         </div>
                         <div>
-                          <dt>Flight window</dt>
+                          <dt>Launch window</dt>
                           <dd>Open</dd>
                         </div>
                         <div>
-                          <dt>Vehicle</dt>
-                          <dd>Vohaul Explorer</dd>
+                          <dt>Division</dt>
+                          <dd>Insurance clones</dd>
                         </div>
                       </dl>
                     ),
@@ -158,7 +160,7 @@ export function Mission() {
               <div className="mission-submit">
                 <span className="eyebrow">LOCAL DEMO / NO ACCOUNT NEEDED</span>
                 <Button type="submit">
-                  Prepare for launch <Icon name="arrow" />
+                  Review operation <Icon name="arrow" />
                 </Button>
               </div>
             </form>
@@ -169,12 +171,12 @@ export function Mission() {
         <div className="mission-patch" aria-hidden="true">
           <span>V O H A U L</span>
           <svg viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="83" />
-            <circle cx="100" cy="100" r="70" strokeDasharray="2 6" />
+            <path d="M55 18h90l37 37v90l-37 37H55l-37-37V55Z" />
+            <path d="M60 31h80l29 29v80l-29 29H60l-29-29V60Z" strokeDasharray="3 6" />
             <path d="m54 128 46-75 46 75-46-20Z" />
             <path d="M30 142h140M100 18v20M100 162v20" />
           </svg>
-          <span>EXPLORATION DIVISION</span>
+          <span>DEPARTMENT OF INEVITABLE VICTORY</span>
         </div>
         <h3>
           Six components.
@@ -183,21 +185,23 @@ export function Mission() {
         </h3>
         <p className="muted">
           Buttons, fields, checkboxes, alerts, tabs, and a confirmation dialog. Try submitting an
-          empty plan, use only your keyboard, or switch the lights.
+          empty plan, use only your keyboard, or switch the lights. Even an evil genius should make
+          things usable.
         </p>
-        <Alert tone="info" title="Your mission stays here">
-          This playground runs entirely in your browser. Refreshing resets the flight plan.
+        <Alert tone="info" title="A harmless rehearsal">
+          This playground runs entirely in your browser. Refreshing resets the plan. Your actual
+          planet is quite safe.
         </Alert>
       </aside>
       <Dialog
         open={dialog}
         onOpenChange={setDialog}
-        title="Ready for a new horizon?"
-        description={`Confirm the flight plan for ${name.trim() || 'your mission'} to Kepler Station.`}
+        title="Authorize your master plan?"
+        description={`Approve operation ${name.trim() || 'Untitled'}. Target: Xenon.`}
         footer={
           <>
             <Button variant="secondary" onClick={() => setDialog(false)}>
-              Keep planning
+              Revise the scheme
             </Button>
             <Button
               onClick={() => {
@@ -205,13 +209,13 @@ export function Mission() {
                 setLaunched(true);
               }}
             >
-              Confirm mission <Icon name="rocket" />
+              Authorize operation <Icon name="rocket" />
             </Button>
           </>
         }
       >
         <Alert tone="info" title="Simulation only">
-          This confirms your demo plan. No real mission is launched.
+          This approves your demo plan. No clones will be dispatched.
         </Alert>
       </Dialog>
     </div>

@@ -173,35 +173,40 @@ describe('Mission flow', () => {
         <Mission />
       </StrictMode>,
     );
-    await user.click(screen.getByRole('button', { name: 'Prepare for launch' }));
-    expect(screen.getByRole('textbox', { name: 'Mission name' })).toHaveFocus();
-    expect(screen.getByText('Give your mission a name before launch.')).toBeInTheDocument();
-    await user.type(screen.getByRole('textbox'), 'Pale Blue Dot');
-    await user.click(screen.getByRole('tab', { name: 'Flight details' }));
-    await user.click(screen.getByRole('button', { name: 'Prepare for launch' }));
-    expect(screen.getByRole('tab', { name: 'Preflight' })).toHaveAttribute('aria-selected', 'true');
-    expect(screen.getByRole('checkbox', { name: 'Flight plan reviewed' })).toHaveFocus();
-    await user.click(screen.getByRole('checkbox', { name: 'Flight plan reviewed' }));
-    await user.click(screen.getByRole('button', { name: 'Prepare for launch' }));
+    await user.click(screen.getByRole('button', { name: 'Review operation' }));
+    expect(screen.getByRole('textbox', { name: 'Operation name' })).toHaveFocus();
+    expect(
+      screen.getByText('Name your operation before proceeding. Even genius needs a filing system.'),
+    ).toBeInTheDocument();
+    await user.type(screen.getByRole('textbox'), 'Paperwork Apocalypse');
+    await user.click(screen.getByRole('tab', { name: 'Operation details' }));
+    await user.click(screen.getByRole('button', { name: 'Review operation' }));
+    expect(screen.getByRole('tab', { name: 'Directives' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(screen.getByRole('checkbox', { name: 'Takeover plan reviewed' })).toHaveFocus();
+    await user.click(screen.getByRole('checkbox', { name: 'Takeover plan reviewed' }));
+    await user.click(screen.getByRole('button', { name: 'Review operation' }));
     expect(screen.getByRole('dialog')).toBeVisible();
-    await user.click(screen.getByRole('button', { name: 'Confirm mission' }));
-    expect(screen.getByRole('status')).toHaveTextContent('Pale Blue Dot is ready');
-    expect(screen.getByRole('heading', { name: "You're cleared for takeoff." })).toHaveFocus();
+    await user.click(screen.getByRole('button', { name: 'Authorize operation' }));
+    expect(screen.getByRole('status')).toHaveTextContent('Paperwork Apocalypse is ready');
+    expect(screen.getByRole('heading', { name: 'An inevitable triumph.' })).toHaveFocus();
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: 'Plan another mission' }));
-    expect(screen.getByRole('textbox')).toHaveValue('Pale Blue Dot');
-    expect(screen.getByRole('checkbox', { name: 'Flight plan reviewed' })).not.toBeChecked();
+    await user.click(screen.getByRole('button', { name: 'Plot another takeover' }));
+    expect(screen.getByRole('textbox')).toHaveValue('Paperwork Apocalypse');
+    expect(screen.getByRole('checkbox', { name: 'Takeover plan reviewed' })).not.toBeChecked();
   });
   it('has no automated structural accessibility violations in the initial and validation views', async () => {
     const { container } = render(
       <main>
-        <h1>Mission planner</h1>
+        <h1>Takeover simulator</h1>
         <Mission />
       </main>,
     );
     const options = { rules: { 'color-contrast': { enabled: false } } };
     expect((await axe.run(container, options)).violations).toEqual([]);
-    await userEvent.click(screen.getByRole('button', { name: 'Prepare for launch' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Review operation' }));
     expect((await axe.run(container, options)).violations).toEqual([]);
   });
 });

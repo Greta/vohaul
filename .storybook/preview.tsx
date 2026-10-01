@@ -4,6 +4,8 @@ import '@fontsource/space-grotesk/400.css';
 import '@fontsource/space-grotesk/500.css';
 import '@fontsource/space-grotesk/600.css';
 import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/orbitron/600.css';
+import '@fontsource/orbitron/800.css';
 import '../src/components/styles.css';
 
 function Theme({ theme, children }: { theme: string; children: ReactNode }) {

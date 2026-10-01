@@ -3,12 +3,12 @@ import { Button } from '../components';
 import { Icon } from './Icons';
 import { CodeBlock } from './CodeBlock';
 const tokens = [
-  ['--v-accent', 'Signal', '#A3FFCB', '#BDE9CF'],
-  ['--v-lilac', 'Orbit', '#B7B8FF', '#6556A2'],
-  ['--v-cyan', 'Atmosphere', '#84E8FF', '#256278'],
-  ['--v-warning', 'Solar', '#FFD8A0', '#77501A'],
-  ['--v-bg', 'Deep space / Daylight', '#080E16', '#F5F4F0'],
-  ['--v-surface', 'Surface', '#101923', '#FFFEFA'],
+  ['--v-accent', 'Authority', '#00F5FF', '#F7CBB2'],
+  ['--v-lilac', 'Ego', '#FF4CDE', '#78418E'],
+  ['--v-cyan', 'Intelligence', '#62BAFF', '#236477'],
+  ['--v-warning', 'Interference', '#E8FF00', '#675213'],
+  ['--v-bg', 'Fortress / Facade', '#05080D', '#F2EEF8'],
+  ['--v-surface', 'Console', '#0A121B', '#FCF9FF'],
 ];
 export function Foundations() {
   const [copied, setCopied] = useState('');
@@ -26,14 +26,14 @@ export function Foundations() {
         <div>
           <span className="eyebrow">01 / COLOR</span>
           <h2>
-            The atmosphere changes.
+            Different lights.
             <br />
-            The system stays familiar.
+            Same questionable intentions.
           </h2>
         </div>
         <p>
-          Semantic color names keep every component in sync. Dark themes glow. Light themes pair
-          soft surfaces with deeper, readable ink.
+          Nightfall is electric cyan, hot magenta, and acid yellow. Daybreak trades them for peach,
+          lavender, and cool blue. Color roles stay consistent, while the hues are free to change.
         </p>
       </div>
       <div className="palette-comparison">
@@ -70,12 +70,12 @@ export function Foundations() {
         <section className="foundation-card">
           <span className="eyebrow">02 / TYPOGRAPHY</span>
           <p className="type-specimen">
-            Aa<span>01</span>
+            Vh<span>01</span>
           </p>
-          <h3>Space Grotesk</h3>
+          <h3>Orbitron + Space Grotesk</h3>
           <p className="muted">
-            Clear, geometric, and just a little unfamiliar. Paired with IBM Plex Mono for small
-            labels and coordinates.
+            Orbitron supplies the theatrical authority. Space Grotesk keeps longer passages
+            readable. IBM Plex Mono handles labels, coordinates, and classified paperwork.
           </p>
           <span className="mono type-mono">
             ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -85,7 +85,7 @@ export function Foundations() {
         </section>
         <section className="foundation-card">
           <span className="eyebrow">03 / RHYTHM</span>
-          <h3>A little breathing room.</h3>
+          <h3>Precision, under duress.</h3>
           <div className="spacing-scale">
             {[4, 8, 12, 16, 24, 32, 48].map((size) => (
               <div key={size}>
@@ -95,13 +95,13 @@ export function Foundations() {
             ))}
           </div>
           <p className="muted">
-            A shared spacing rhythm, softly cut corners, and thin outlines bring the interface
-            together.
+            Square corners, 45-degree cuts, stepped brackets, and segmented scales. A shared spacing
+            rhythm keeps the machinery orderly.
           </p>
           <div className="radius-examples">
-            <span>06</span>
-            <span>12</span>
-            <span>∞</span>
+            <span>90°</span>
+            <span>45°</span>
+            <span>///</span>
           </div>
         </section>
       </div>
@@ -110,7 +110,7 @@ export function Foundations() {
           <span className="eyebrow">04 / MAKE IT YOURS</span>
           <h2>
             One attribute.
-            <br />A different world.
+            <br />A convincing disguise.
           </h2>
           <p className="muted">
             Apply a theme to the page or a single region. Override the CSS tokens to give your
@@ -122,7 +122,7 @@ export function Foundations() {
         </div>
         <CodeBlock
           code={
-            '<section data-theme="light">\n  <Button>Start exploring</Button>\n</section>\n\n/* Your own accent */\n[data-theme="light"] {\n  --v-accent: #d7d0f3;\n  --v-on-accent: #3c3266;\n}'
+            '<section data-theme="light">\n  <Button>Assume command</Button>\n</section>\n\n/* Your own accent */\n[data-theme="light"] {\n  --v-accent: #d7d0f3;\n  --v-on-accent: #3c3266;\n}'
           }
         />
       </section>

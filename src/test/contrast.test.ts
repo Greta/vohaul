@@ -25,7 +25,7 @@ for (const theme of ['dark', 'light']) {
     const t = tokens(`[data-theme='${theme}']`);
     it('keeps primary text, supporting text, and button labels readable', () => {
       for (const bg of ['--v-bg', '--v-surface', '--v-raised']) {
-        for (const fg of ['--v-text', '--v-muted'])
+        for (const fg of ['--v-text', '--v-muted', '--v-signal', '--v-lilac'])
           expect(contrast(t[fg], t[bg]), `${fg} on ${bg}`).toBeGreaterThanOrEqual(4.5);
       }
       expect(contrast(t['--v-on-accent'], t['--v-accent'])).toBeGreaterThanOrEqual(4.5);

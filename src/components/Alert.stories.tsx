@@ -5,8 +5,8 @@ const meta = {
   component: Alert,
   tags: ['autodocs'],
   args: {
-    title: 'Connection established',
-    children: 'Your message arrived safely.',
+    title: 'Consciousness backed up',
+    children: 'My brilliance has outlived another hard drive.',
     tone: 'success',
     announce: false,
   },
@@ -33,21 +33,21 @@ export const Success: Story = {};
 export const Information: Story = {
   args: {
     tone: 'info',
-    title: 'A little heads-up',
-    children: 'The next transmission window opens soon.',
+    title: 'A memo from your superior',
+    children: 'All departments will admire the new control panel.',
   },
 };
 export const Warning: Story = {
   args: {
     tone: 'warning',
-    title: 'Check your coordinates',
-    children: 'Your destination is outside the usual flight path.',
+    title: 'Unscheduled janitor detected',
+    children: 'Someone brought a mop to a planetary takeover.',
   },
 };
 export const Danger: Story = {
   args: {
     tone: 'danger',
-    title: 'Signal interrupted',
-    children: 'Your message was not sent. Check the connection and try again.',
+    title: 'The plan has encountered Wilco',
+    children: 'Operation interrupted. Review your plan and try again.',
   },
 };

@@ -4,7 +4,11 @@ const meta = {
   title: 'Components/TextField',
   component: TextField,
   tags: ['autodocs'],
-  args: { label: 'Call sign', placeholder: 'e.g. Voyager', hint: 'How should we address you?' },
+  args: {
+    label: 'Operative designation',
+    placeholder: 'e.g. Subordinate 07',
+    hint: 'An impressive title will not affect your clearance.',
+  },
   decorators: [
     (Story) => (
       <div style={{ maxWidth: 380 }}>
@@ -25,7 +29,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 export const Error: Story = {
-  args: { defaultValue: 'Voyager', error: 'That call sign is already in use. Try another.' },
+  args: { defaultValue: 'Voyager', error: 'That designation is taken. Enter another.' },
 };
 export const Required: Story = { args: { required: true } };
 export const Disabled: Story = { args: { disabled: true } };

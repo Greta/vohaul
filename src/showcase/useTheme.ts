@@ -9,7 +9,7 @@ export function useTheme() {
     document.documentElement.dataset.theme = next;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', next === 'dark' ? '#080e16' : '#f5f4f0');
+      ?.setAttribute('content', next === 'dark' ? '#05080d' : '#f2eef8');
     try {
       localStorage.setItem('vohaul-theme', next);
     } catch {

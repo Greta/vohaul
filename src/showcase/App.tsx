@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Alert, Button, Checkbox, TextField } from '../components';
 import { Icon, Mark, type IconName } from './Icons';
-import { Orbital } from './Orbital';
+import { Mainframe } from './Mainframe';
 import { Catalog } from './Catalog';
 import { Foundations } from './Foundations';
 import { Mission } from './Mission';
@@ -10,7 +10,7 @@ import { useTheme, type Theme } from './useTheme';
 const pages = ['overview', 'components', 'foundations', 'playground'] as const;
 type Page = (typeof pages)[number];
 const pageNames = {
-  overview: 'Overview',
+  overview: 'Command center',
   components: 'Components',
   foundations: 'Foundations',
   playground: 'Playground',
@@ -65,7 +65,9 @@ function ThemePreview({
       </div>
       <div className="theme-preview-label">
         <div>
-          <span className="eyebrow">{theme === 'dark' ? 'AFTER HOURS' : 'A NEW DAWN'}</span>
+          <span className="eyebrow">
+            {theme === 'dark' ? 'UNFILTERED MEGALOMANIA' : 'PUBLIC RELATIONS MODE'}
+          </span>
           <strong>{theme === 'dark' ? 'Nightfall' : 'Daybreak'}</strong>
         </div>
         <span className="theme-check">
@@ -80,37 +82,47 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
   const [contacted, setContacted] = useState(false);
   return (
     <>
+      <div className="security-strip">
+        <span>
+          <span className="status-dot" /> SUPREME INTELLECT ONLINE
+        </span>
+        <span>CLEARANCE: EXCESSIVE</span>
+      </div>
       <section className="hero">
         <div className="hero-copy">
           <span className="eyebrow hero-eyebrow">
             <span className="status-dot" />
-            INDEPENDENT UI SYSTEM / V.01
+            VOHAUL INDUSTRIES / COMMAND INTERFACE
           </span>
           <h1>
-            Interfaces.
+            TOTAL
             <br />
-            From another
-            <br />
-            <span>world.</span>
+            <span>CONTROL.</span>
           </h1>
+          <div className="hero-aside">Such a modest ambition.</div>
           <p>
-            A sci-fi UI kit with a human side. Familiar controls, thoughtful details, and two very
-            different atmospheres.
+            A React UI kit for an intellect of my magnitude. Six obedient components. Two exquisite
+            disguises. One irritating janitor.
           </p>
           <div className="hero-actions">
             <a href="#components" className="v-button v-button--primary v-button--lg">
-              Explore components <Icon name="arrow" />
+              Inspect the arsenal <Icon name="arrow" />
             </a>
             <a href="#playground" className="text-link">
-              Enter the playground <Icon name="external" />
+              Plot something diabolical <Icon name="external" />
             </a>
           </div>
           <div className="hero-credit">
-            <span className="tiny-cross">✦</span>DESIGNED & BUILT BY GRETA PRISBY
+            <span className="tiny-cross">✦</span>ENGINEERED BY GRETA PRISBY / EGO BY VOHAUL
           </div>
         </div>
-        <Orbital />
+        <Mainframe />
       </section>
+      <div className="incident-strip">
+        <span className="incident-code">ADVISORY / 001</span>
+        <span>Janitorial access revoked. Again.</span>
+        <span aria-hidden="true">/// /// ///</span>
+      </div>
       <div className="system-strip">
         <div>
           <strong>06</strong>
@@ -132,11 +144,11 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
       <section className="overview-components">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">01 / THE BUILDING BLOCKS</span>
-            <h2>Small parts. Big possibilities.</h2>
+            <span className="eyebrow">01 / INSTRUMENTS OF CONTROL</span>
+            <h2>A superior class of component.</h2>
           </div>
           <a className="text-link" href="#components">
-            Meet the components <Icon name="arrow" />
+            Inspect all six <Icon name="arrow" />
           </a>
         </div>
         <div className="component-grid">
@@ -147,7 +159,7 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
             </div>
             <div className="sample-content">
               <Button onClick={() => setContacted(true)}>
-                {contacted ? 'Signal received' : 'Make contact'}{' '}
+                {contacted ? 'Order received' : 'Issue an order'}{' '}
                 <Icon name={contacted ? 'check' : 'arrow'} />
               </Button>
               <Button
@@ -161,7 +173,9 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
               </Button>
             </div>
             <p role="status">
-              {contacted ? 'You made contact. Hello, explorer.' : 'A clear next step.'}
+              {contacted
+                ? 'Your minions are pretending to look busy.'
+                : 'Go on. Exercise your authority.'}
             </p>
           </article>
           <article className="sample-card">
@@ -170,9 +184,13 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
               <Icon name="arrow" />
             </div>
             <div className="sample-content">
-              <TextField label="Your call sign" placeholder="Hello, explorer" autoComplete="off" />
+              <TextField
+                label="Operative designation"
+                placeholder="Anyone but Wilco"
+                autoComplete="off"
+              />
             </div>
-            <p>Room for a little personality.</p>
+            <p>Your rank is provisional. My genius is not.</p>
           </article>
           <article className="sample-card">
             <div className="sample-label">
@@ -180,10 +198,10 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
               <Icon name="arrow" />
             </div>
             <div className="sample-content">
-              <Checkbox label="Ready for the unknown" defaultChecked />
-              <Checkbox label="Bring a little curiosity" defaultChecked />
+              <Checkbox label="Activate the clone division" defaultChecked />
+              <Checkbox label="Keep the monologue brief" defaultChecked />
             </div>
-            <p>Good things start with a choice.</p>
+            <p>The second option is purely aspirational.</p>
           </article>
           <article className="sample-card">
             <div className="sample-label">
@@ -191,28 +209,28 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
               <Icon name="arrow" />
             </div>
             <div className="sample-content">
-              <Alert tone="success" title="You're in good company">
-                All systems ready for a new idea.
+              <Alert tone="success" title="Genius successfully backed up">
+                A body is temporary. An ego is forever.
               </Alert>
             </div>
-            <p>A signal worth noticing.</p>
+            <p>Disaster recovery, with delusions of grandeur.</p>
           </article>
         </div>
       </section>
       <section className="theme-section">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">02 / CHOOSE YOUR ATMOSPHERE</span>
+            <span className="eyebrow">02 / SELECT YOUR DISGUISE</span>
             <h2>
-              Neon nights.
+              After-hours villainy.
               <br />
-              Pastel days.
+              Daytime respectability.
             </h2>
           </div>
           <p>
-            Same components, a different feeling.
+            One nefarious agenda. Two very different palettes.
             <br />
-            Choose a world and watch the whole interface change.
+            Change the lights. The superiority complex stays.
           </p>
         </div>
         <div className="theme-previews">
@@ -226,12 +244,12 @@ function Overview({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) 
       </section>
       <section className="playground-banner">
         <div>
-          <span className="eyebrow">03 / GO BEYOND THE PARTS</span>
-          <h2>Take it for a flight.</h2>
-          <p>See the kit come together in an interactive mission planner.</p>
+          <span className="eyebrow">03 / DEPARTMENT OF QUESTIONABLE PLANS</span>
+          <h2>Every genius needs a dry run.</h2>
+          <p>Prepare a perfectly reasonable takeover in the interactive playground.</p>
         </div>
         <a className="v-button v-button--primary v-button--lg" href="#playground">
-          Launch the playground <Icon name="rocket" />
+          Open the simulator <Icon name="rocket" />
         </a>
         <div className="banner-rings" aria-hidden="true" />
       </section>
@@ -250,8 +268,8 @@ export function App() {
     const update = () => {
       setPage(readPage());
       setNavOpen(false);
-      window.scrollTo({ top: 0 });
-      document.getElementById('page-heading')?.focus();
+      document.getElementById('page-heading')?.focus({ preventScroll: true });
+      window.scrollTo({ top: 0, behavior: 'instant' });
     };
     window.addEventListener('hashchange', update);
     return () => window.removeEventListener('hashchange', update);
@@ -275,7 +293,7 @@ export function App() {
         <a href="#overview" className="brand" aria-label="Vohaul overview">
           <Mark />
           <span>
-            VOHAUL<small>INTERFACE SYSTEM</small>
+            VOHAUL<small>SUPREMACY SYSTEMS</small>
           </span>
         </a>
         <button
@@ -288,7 +306,7 @@ export function App() {
           <Icon name={navOpen ? 'close' : 'menu'} />
         </button>
         <div className="sidebar-inner" id="primary-nav">
-          <span className="nav-label">EXPLORATION</span>
+          <span className="nav-label">COMMAND DIRECTORY</span>
           <nav aria-label="Main navigation">
             {pages.map((item) => (
               <a href={`#${item}`} key={item} aria-current={page === item ? 'page' : undefined}>
@@ -298,7 +316,7 @@ export function App() {
               </a>
             ))}
           </nav>
-          <span className="nav-label nav-label--second">DEVELOPER SPACE</span>
+          <span className="nav-label nav-label--second">RESEARCH & DEVELOPMENT</span>
           <nav aria-label="Resources">
             <a href={storybookUrl}>
               <Icon name="code" />
@@ -327,7 +345,7 @@ export function App() {
                 <i />
                 <i />
               </div>
-              <span className="eyebrow">A LITTLE CLOSER TO THE FUTURE.</span>
+              <span className="eyebrow">GENIUS LEVELS: UNSUSTAINABLE.</span>
             </div>
             <button
               className="motion-control"
@@ -339,7 +357,7 @@ export function App() {
               MOTION {motion ? 'ON' : 'OFF'}
             </button>
             <a href="https://github.com/Greta" className="creator-link">
-              An experiment by Greta Prisby <Icon name="external" width="12" />
+              A creation by Greta Prisby <Icon name="external" width="12" />
             </a>
           </div>
         </div>
@@ -352,7 +370,7 @@ export function App() {
             <strong>{pageNames[page]}</strong>
           </div>
           <div className="topbar-right">
-            <span className="version">V 0.1.0</span>
+            <span className="version">V 0.2 / CLASSIFIED</span>
             <button
               className="theme-toggle"
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -385,17 +403,17 @@ export function App() {
                 </span>
                 <h1>
                   {page === 'components'
-                    ? 'Made to be used.'
+                    ? 'Tools of the takeover.'
                     : page === 'foundations'
-                      ? 'A world of its own.'
-                      : 'Your next mission.'}
+                      ? 'Standards. Mine, of course.'
+                      : 'A foolproof plan. Again.'}
                 </h1>
                 <p>
                   {page === 'components'
-                    ? 'Six considered components. Explore their states, try the interactions, and make them your own.'
+                    ? 'Six components at your command. Inspect their states, test their obedience, and requisition the code.'
                     : page === 'foundations'
-                      ? 'Color, type, and a little space. The shared decisions that make Vohaul feel like Vohaul.'
-                      : 'A working flight planner built with the kit. Give it a name, check the details, and see what happens.'}
+                      ? 'Hard geometry. Unreasonable confidence. The colors, typography, and construction rules behind the command console.'
+                      : 'Name your operation, review the plan, and rehearse your triumph. The universe can wait until you finish the paperwork.'}
                 </p>
               </div>
               {page === 'components' ? (
@@ -412,7 +430,7 @@ export function App() {
               <Mark />
               <span>VOHAUL</span>
             </a>
-            <span>MADE WITH CURIOSITY. BUILT FOR EXPLORATION.</span>
+            <span>UNOFFICIAL SPACE QUEST TRIBUTE. OFFICIAL SUPERIORITY COMPLEX.</span>
             <a href="https://github.com/Greta">
               Greta Prisby <Icon name="external" width="12" />
             </a>

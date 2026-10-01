@@ -5,18 +5,22 @@ const meta = {
   component: Tabs,
   tags: ['autodocs'],
   args: {
-    label: 'Station information',
+    label: 'Fortress intelligence',
     items: [
-      { id: 'overview', label: 'Overview', content: 'Welcome to Kepler Station.' },
+      {
+        id: 'overview',
+        label: 'Overview',
+        content: 'One fortress. An entirely proportionate ego.',
+      },
       {
         id: 'crew',
         label: 'Crew',
-        content: 'Everyone accounted for. The crew is ready to explore.',
+        content: 'Four clones present. Independent thought absent.',
       },
       {
         id: 'log',
-        label: 'Flight log',
-        content: 'Day 042. Arrived at Kepler. The view was worth the trip.',
+        label: 'Incident log',
+        content: 'Day 042. Another janitor. Security has some explaining to do.',
       },
       { id: 'archive', label: 'Archive', disabled: true, content: null },
     ],

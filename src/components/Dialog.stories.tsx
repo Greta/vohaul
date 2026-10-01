@@ -8,16 +8,16 @@ function Example() {
   return (
     <>
       <Button onClick={() => setOpen(true)}>Open transmission</Button>
-      <p role="status">{sent ? 'Transmission sent.' : ''}</p>
+      <p role="status">{sent ? 'Transmission simulated. Applause may now commence.' : ''}</p>
       <Dialog
         open={open}
         onOpenChange={setOpen}
-        title="Send your transmission?"
-        description="Your message is ready to leave the station. Take a moment to check the details."
+        title="Broadcast your proclamation?"
+        description="The universe awaits your remarks. In this demo, your proclamation stays right here in the browser."
         footer={
           <>
             <Button variant="secondary" onClick={() => setOpen(false)}>
-              Not yet
+              Rehearse again
             </Button>
             <Button
               onClick={() => {
@@ -37,7 +37,7 @@ const meta = {
   title: 'Components/Dialog',
   component: Dialog,
   tags: ['autodocs'],
-  args: { open: false, onOpenChange: () => {}, title: 'Send your transmission?' },
+  args: { open: false, onOpenChange: () => {}, title: 'Broadcast your proclamation?' },
   parameters: {
     controls: { disable: true },
     docs: {

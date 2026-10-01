@@ -93,8 +93,8 @@ export function Icon({ name, ...props }: SVGProps<SVGSVGElement> & { name: IconN
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeLinecap="square"
+      strokeLinejoin="miter"
       aria-hidden="true"
       {...props}
     >

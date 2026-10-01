@@ -4,7 +4,10 @@ const meta = {
   title: 'Components/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
-  args: { label: 'Keep me in the loop', description: 'Receive updates from the station.' },
+  args: {
+    label: 'Enable fortress updates',
+    description: 'Receive updates from the clone division.',
+  },
   parameters: {
     docs: {
       description: {

@@ -14,27 +14,27 @@ import { CodeBlock } from './CodeBlock';
 
 const descriptions = {
   Button: [
-    'An invitation to act.',
+    'An order, elegantly delivered.',
     'A clear next step, with room for quieter alternatives. Loading and disabled states are included.',
   ],
   TextField: [
-    'A space for a thought.',
+    'Your designation, subordinate.',
     'A visible label, useful guidance, and an error message that tells you how to move forward.',
   ],
   Checkbox: [
-    'Small choices. Clear intent.',
+    'Compliance is a choice. Technically.',
     'Familiar native behavior with a generous label and optional supporting text.',
   ],
   Alert: [
-    'The right signal.',
+    'Intelligence from the front.',
     'Updates that stay readable and make their meaning clear through words, symbols, and color.',
   ],
   Tabs: [
-    'A change of perspective.',
+    'Compartmentalize your schemes.',
     'Organize related views. Arrow keys move between tabs, and Home and End jump to either edge.',
   ],
   Dialog: [
-    'A moment to decide.',
+    'A pause before the inevitable.',
     'A focused confirmation with a clear way forward and a clear way back. Escape closes it.',
   ],
 } as const;
@@ -42,16 +42,16 @@ type ComponentName = keyof typeof descriptions;
 const names = Object.keys(descriptions) as ComponentName[];
 const snippets: Record<ComponentName, string> = {
   Button:
-    'import { Button } from \'@greta/vohaul\'\n\n<Button variant="primary" onClick={sendSignal}>\n  Send a signal\n</Button>',
+    'import { Button } from \'@greta/vohaul\'\n\n<Button variant="primary" onClick={issueOrder}>\n  Issue an order\n</Button>',
   TextField:
-    '<TextField\n  label="Call sign"\n  value={callSign}\n  onChange={e => setCallSign(e.target.value)}\n  hint="How should we address you?"\n  error={error}\n/>',
+    '<TextField\n  label="Operative designation"\n  value={callSign}\n  onChange={e => setCallSign(e.target.value)}\n  hint="An impressive title will not affect your clearance."\n  error={error}\n/>',
   Checkbox:
-    '<Checkbox\n  label="Keep me in the loop"\n  description="Receive updates from the station."\n  checked={subscribed}\n  onChange={e => setSubscribed(e.target.checked)}\n/>',
+    '<Checkbox\n  label="Enable fortress updates"\n  description="Receive updates from the clone division."\n  checked={subscribed}\n  onChange={e => setSubscribed(e.target.checked)}\n/>',
   Alert:
-    '<Alert tone="success" title="Connection established" announce>\n  Your message arrived safely.\n</Alert>',
-  Tabs: "<Tabs\n  label=\"Station information\"\n  items={[\n    { id: 'overview', label: 'Overview', content: <Overview /> },\n    { id: 'crew', label: 'Crew', content: <Crew /> },\n  ]}\n/>",
+    '<Alert tone="success" title="Consciousness backed up" announce>\n  My brilliance has outlived another hard drive.\n</Alert>',
+  Tabs: "<Tabs\n  label=\"Fortress intelligence\"\n  items={[\n    { id: 'overview', label: 'Overview', content: <Overview /> },\n    { id: 'crew', label: 'Crew', content: <Crew /> },\n  ]}\n/>",
   Dialog:
-    '<Dialog\n  open={open}\n  onOpenChange={setOpen}\n  title="Send your transmission?"\n  description="Take a moment to check the details."\n  footer={<Button onClick={send}>Send transmission</Button>}\n/>',
+    '<Dialog\n  open={open}\n  onOpenChange={setOpen}\n  title="Broadcast your proclamation?"\n  description="Take a moment to check the details."\n  footer={<Button onClick={send}>Send transmission</Button>}\n/>',
 };
 function Choices<T extends string>({
   label,
@@ -102,11 +102,13 @@ function ButtonDemo() {
           disabled={state === 'disabled'}
           onClick={() => setSent(true)}
         >
-          {sent ? 'Signal received' : 'Send a signal'}
+          {sent ? 'Order received' : 'Issue an order'}
           <Icon name={sent ? 'check' : 'arrow'} />
         </Button>
         <span className="demo-response" role="status">
-          {sent ? 'Transmission complete. You made contact.' : 'Go ahead. Make contact.'}
+          {sent
+            ? 'Order logged. The minions have been informed.'
+            : 'Go ahead. Assert your authority.'}
         </span>
       </div>
       <div className="demo-controls">
@@ -135,12 +137,12 @@ function FieldDemo() {
       <div className="demo-stage">
         <div className="demo-field">
           <TextField
-            label="Call sign"
-            placeholder="e.g. Voyager"
+            label="Operative designation"
+            placeholder="e.g. Subordinate 07"
             value={value}
             onChange={(event) => setValue(event.target.value)}
-            hint="How should we address you?"
-            error={state === 'error' ? 'That call sign is already in use. Try another.' : undefined}
+            hint="An impressive title will not affect your clearance."
+            error={state === 'error' ? 'That designation is taken. Enter another.' : undefined}
             disabled={state === 'disabled'}
           />
         </div>
@@ -162,13 +164,13 @@ function CheckboxDemo() {
     <div className="demo-stage">
       <div className="checklist">
         <Checkbox
-          label="Keep me in the loop"
-          description="Receive updates from the station."
+          label="Enable fortress updates"
+          description="Receive updates from the clone division."
           checked={checked}
           onChange={(event) => setChecked(event.target.checked)}
         />
-        <Checkbox label="Include mission notes" defaultChecked={false} />
-        <Checkbox label="Deep space channel unavailable" disabled />
+        <Checkbox label="Include the full monologue" defaultChecked={false} />
+        <Checkbox label="Janitorial access unavailable" disabled />
       </div>
     </div>
   );
@@ -176,12 +178,12 @@ function CheckboxDemo() {
 function AlertDemo() {
   const [tone, setTone] = useState<NonNullable<AlertProps['tone']>>('success');
   const content = {
-    success: ['Connection established', 'Your message arrived safely.'],
-    info: ['A little heads-up', 'The next transmission window opens soon.'],
-    warning: ['Check your coordinates', 'Your destination is outside the usual flight path.'],
+    success: ['Consciousness backed up', 'My brilliance has outlived another hard drive.'],
+    info: ['A memo from your superior', 'All departments will admire the new control panel.'],
+    warning: ['Unscheduled janitor detected', 'Someone brought a mop to a planetary takeover.'],
     danger: [
-      'Signal interrupted',
-      'Your message was not sent. Check the connection and try again.',
+      'The plan has encountered Wilco',
+      'Operation interrupted. Review your plan and try again.',
     ],
   };
   return (
@@ -206,7 +208,7 @@ function TabsDemo() {
   return (
     <div className="demo-stage">
       <Tabs
-        label="Station information"
+        label="Fortress intelligence"
         items={[
           {
             id: 'overview',
@@ -214,7 +216,7 @@ function TabsDemo() {
             content: (
               <div className="tab-demo-content">
                 <span className="big-coordinate">VHL—01</span>
-                <p>A small station. A very big universe.</p>
+                <p>One fortress. An entirely proportionate ego.</p>
                 <span className="chip">ALL SYSTEMS READY</span>
               </div>
             ),
@@ -225,17 +227,17 @@ function TabsDemo() {
             content: (
               <div className="tab-demo-content">
                 <span className="big-coordinate">04 / 04</span>
-                <p>Everyone accounted for. The crew is ready to explore.</p>
+                <p>Four clones present. Independent thought absent.</p>
               </div>
             ),
           },
           {
             id: 'log',
-            label: 'Flight log',
+            label: 'Incident log',
             content: (
               <div className="tab-demo-content">
                 <span className="big-coordinate">DAY 042</span>
-                <p>Arrived at Kepler. The view was worth the trip.</p>
+                <p>Another janitor. Security has some explaining to do.</p>
               </div>
             ),
           },
@@ -260,18 +262,18 @@ function DialogDemo() {
       </Button>
       <span className="demo-response" role="status">
         {sent
-          ? 'Transmission sent. The stars are listening.'
-          : 'A little space to make a decision.'}
+          ? 'Transmission simulated. Applause may now commence.'
+          : 'A brief opportunity to reconsider your genius.'}
       </span>
       <Dialog
         open={open}
         onOpenChange={setOpen}
-        title="Send your transmission?"
-        description="Your message is ready to leave the station. You can still take a moment to check the details."
+        title="Broadcast your proclamation?"
+        description="The universe awaits your remarks. In this demo, your proclamation stays right here in the browser."
         footer={
           <>
             <Button variant="secondary" onClick={() => setOpen(false)}>
-              Not yet
+              Rehearse again
             </Button>
             <Button
               onClick={() => {
@@ -349,7 +351,7 @@ export function Catalog() {
         <div className="component-note">
           <Icon name="check" />
           <div>
-            <h4>Thoughtful by default</h4>
+            <h4>Usable, even under evil management</h4>
             <p>{notes[selected]}</p>
           </div>
         </div>

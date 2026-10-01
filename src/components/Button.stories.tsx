@@ -5,7 +5,7 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   args: {
-    children: 'Send a signal',
+    children: 'Issue an order',
     variant: 'primary',
     size: 'md',
     loading: false,
@@ -30,7 +30,7 @@ export const Primary: Story = {};
 export const Secondary: Story = { args: { variant: 'secondary' } };
 export const Ghost: Story = { args: { variant: 'ghost' } };
 export const Destructive: Story = { args: { variant: 'danger', children: 'Discard draft' } };
-export const Loading: Story = { args: { loading: true, children: 'Sending signal' } };
+export const Loading: Story = { args: { loading: true, children: 'Issuing order' } };
 export const Disabled: Story = { args: { disabled: true } };
 export const Sizes: Story = {
   render: () => (

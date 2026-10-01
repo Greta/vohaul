@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vohaul.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080e16" />
+    <meta
+      name="description"
+      content="Vohaul by Greta Prisby. A sci-fi React UI kit with neon nights, pastel days, and thoughtful interactions. Explore the components and build your next interface."
+    />
+    <title>Vohaul — Interfaces beyond the ordinary</title>
+    <script>
+      try {
+        const theme = localStorage.getItem('vohaul-theme');
+        if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
